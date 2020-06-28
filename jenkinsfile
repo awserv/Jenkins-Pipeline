@@ -22,14 +22,14 @@ pipeline {
           steps {
               sh 'mv target/hello-1.0.war /usr/' # build maven
               sh 'cd /usr/' 
-              sh 'docker build --tag 322.32.212.2:5000/boxfuse-jenkins .' #docker build
-              sh 'docker push 322.32.212.2:5000/boxfuse-jenkins' # pushing repository
+              sh 'docker build --tag 322.32.212:5000/boxfuse-jenkins .' #docker build
+              sh 'docker push 322.32.212:5000/boxfuse-jenkins' # pushing repository
           }
       }
       stage('Run container') {
           steps {
-              sh 'docker run -it -d -p 8081:8080 --name boxfuse-jenkins 322.32.212.2:5000/boxfuse-jenkins'
+              sh 'docker run -it -d -p 8081:8080 --name boxfuse-jenkins 322.32.212:5000/boxfuse-jenkins'
           }
           }
          }
-         }
+    }
